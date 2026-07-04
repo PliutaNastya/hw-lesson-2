@@ -38,6 +38,28 @@ describe('Урок 2 - Умови, цикли, функції, масиви', ()
     expect(result).not.toContain('NaN');
   });
 
+  test('Задача 4: divide - некоректний перший аргумент', () => {
+		expect(divide("10", 2)).toContain('Некоректні');
+	});
+
+	test('Задача 4: divide - некоректний другий аргумент', () => {
+		expect(divide(10, "2")).toContain('Некоректні');
+	});
+
+	test('Задача 4: divide - NaN не допускається', () => {
+		const result = divide(NaN, 2);
+		expect(result).not.toContain('NaN');
+	});
+
+	test('Задача 4: divide - Infinity не допускається', () => {
+		const result = divide(Infinity, 2);
+		expect(result).not.toContain('Infinity');
+	});
+
+	test('Задача 4: divide - рядок замість числа', () => {
+		expect(divide("10", 2)).toBe('Некоректні дані');
+	});
+
   test('Задача 5: масив містить 10 і функція повертає true', () => {
     expect(task5()).toBe(true);
   });
